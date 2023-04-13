@@ -4,6 +4,11 @@ console.log('happy canvas')
 
 const cvs = new EasyCanvas('easy-canvas')
 console.log(cvs)
+
+function drawImag() {
+    cvs.drawImage()
+}
+drawImag()
 function drawRect() {
     cvs.drawRect({
         x: 0,
@@ -22,4 +27,21 @@ function drawRect() {
         fillColor: 'rgba(0, 0, 200, 0.5)',
     })
 }
-drawRect()
+function drawPath() {
+    cvs.drawPath()
+}
+function drawCicle() {
+    cvs.drawCicle()
+}
+function drawCurve() {
+    cvs.drawCurve()
+}
+function drawRoundedRect() {
+    cvs.drawRoundedRect({ x: 50, y: 50, width: 100, height: 50, radius: 10, fillColor: 'gray' })
+}
+// drawRect()
+// drawPath()
+// drawCicle()
+// drawCurve()
+
+drawRoundedRect()
