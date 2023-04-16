@@ -4,6 +4,8 @@
  *  渲染上下文：2D 渲染上下文( WebGL 使用了基于OpenGL ES的 3D 上下文)
  */
 import { drawRoundedRect } from './rect-api'
+import { textFill } from './font-api'
+import { drawImage } from './image-api'
 export default class EasyCanvas {
     constructor(elID) {
         const canvasEl = document.getElementById(elID)
@@ -14,7 +16,9 @@ export default class EasyCanvas {
         }
         // this.canvasCtx.globalAlpha = 0.2
     }
-
+    drawImg() {
+        drawImage(this.canvasCtx)
+    }
     drawImage() {
         const img = new Image()
         // img.src = require('@img/01.jpg')
@@ -32,7 +36,7 @@ export default class EasyCanvas {
         console.log(img)
     }
     /** 绘制矩形 */
-    drawRect({ x, y, width, height, fillColor, type = 'fill' } = options) {
+    drawRect({ x, y, width, height, fillColor = '', type = 'fill' } = options) {
         // fillRect：绘制一个填充的矩形，需要先填充fillStyle，再绘制才能生效
         if (fillColor) {
             this.canvasCtx.fillStyle = fillColor
@@ -141,4 +145,85 @@ export default class EasyCanvas {
         // this.canvasCtx.bezierCurveTo(85, 25, 75, 37, 75, 40)
         // this.canvasCtx.fill()
     }
+    /** 设置阴影
+     * shadowOffsetX
+     * shadowOffsetY
+     * shadowOffsetX 和 shadowOffsetY 用来设定阴影在 X 和 Y 轴的延伸距离，
+     * 它们是不受变换矩阵所影响的。负值表示阴影会往上或左延伸，正值则表示会往下或右延伸，它们默认都为 0
+     *
+     * shadowBlur = float
+     * 用于设定阴影的模糊程度，其数值并不跟像素数量挂钩，也不受变换矩阵的影响，默认为 0
+     *
+     * shadowColor = color
+     * shadowColor 是标准的 CSS 颜色值，用于设定阴影颜色效果，默认是全透明的黑色
+     */
+    useShadows() {
+        this.canvasCtx.shadowOffsetX = 2
+        this.canvasCtx.shadowOffsetY = 2
+        this.canvasCtx.shadowBlur = 2
+        this.canvasCtx.shadowColor = 'rgba(0, 0, 0, 0.5)'
+
+        this.canvasCtx.font = '20px Times New Roman'
+        this.canvasCtx.fillStyle = 'Black'
+        this.canvasCtx.fillText('Sample String', 5, 30)
+    }
+    textFill(options) {
+        textFill.call(this.canvasCtx, options)
+    }
+    /** 执行自定义api调用 */
+    execuOriginApi(options) {
+        for (let key in options) {
+            this.canvasCtx[key] = options[key]
+        }
+    }
+    /** 当前配置（即移动，旋转和缩放，见下）入栈：
+     * strokeStyle, fillStyle, globalAlpha, lineWidth, lineCap, lineJoin, miterLimit, lineDashOffset, shadowOffsetX, shadowOffsetY, shadowBlur, shadowColor, globalCompositeOperation, font, textAlign, textBaseline, direction, imageSmoothingEnabled
+     * 当前的裁切路径（clipping path）
+     */
+    save() {
+        this.canvasCtx.save()
+    }
+    restore() {
+        this.canvasCtx.restore()
+    }
+    /** translate(x, y) 用来移动 canvas 和它的原点到一个不同的位置
+     * translate方法接受两个参数。*x *是左右偏移量，y 是上下偏移量
+     */
+    translate() {
+        this.canvasCtx.translate(80, 0)
+        setTimeout(() => {
+            this.canvasCtx.translate(0, 0)
+            console.log('执行了？')
+        }, 2000)
+    }
+    /** 旋转rotate(angle)
+     * 旋转的中心点始终是 canvas 的原点，如果要改变它，我们需要用到 translate方法
+     * 这个方法只接受一个参数：旋转的角度 (angle)，它是顺时针方向的，以弧度为单位的值
+     */
+    rotate(angle) {
+        this.canvasCtx.rotate(angle)
+    }
+    /** 缩放
+     * scale(x, y) scale方法可以缩放画布的水平和垂直的单位
+     * 两个参数都是实数，可以为负数，x 为水平缩放因子，y 为垂直缩放因子，如果比 1 小，会缩小图形，如果比 1 大会放大图形。默认值为 1，为实际大小
+     */
+    scale(x, y) {
+        this.canvasCtx.scale(x, y)
+    }
+    /** 裁剪：将当前正在构建的路径转换为当前的裁剪路径 */
+    clip() {}
+    /** 变形：
+     * transform(a, b, c, d, e, f)
+     * a (m11) 水平方向的缩放
+     * b(m12) 竖直方向的倾斜偏移
+     * c(m21) 水平方向的倾斜偏移
+     * d(m22) 竖直方向的缩放
+     * e(dx) 水平方向的移动
+     * f(dy) 竖直方向的移动
+     * 
+     * setTransform(a, b, c, d, e, f) 取消了当前变形，然后设置为指定的变形
+     * 
+     * resetTransform() 重置当前变形为单位矩阵，它和调用以下语句是一样的：ctx.setTransform(1, 0, 0, 1, 0, 0);
+     */ 
+    transform() {}
 }

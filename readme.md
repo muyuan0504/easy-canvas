@@ -1,4 +1,5 @@
 ### for canvas more easily to iuse
+既提供封装能力，又提供可自定扩展执行函数
 
 ##### globalAlpha透明度处理
 
@@ -12,6 +13,13 @@
 
 可接受另一个 path2D 实例作为参数完成路径的复用；
 也可以接收 svg path 数据构建路径
+
+##### canvas状态的保存和恢复
+save(): 保存画布 (canvas) 的所有状态
+restore(): 恢复 canvas 状态
+一个绘画状态包括：
+当前应用的变形（即移动，旋转和缩放，见下）
+以及下面这些属性：strokeStyle, fillStyle, globalAlpha, lineWidth, lineCap, lineJoin, miterLimit, lineDashOffset, shadowOffsetX, shadowOffsetY, shadowBlur, shadowColor, globalCompositeOperation, font, textAlign, textBaseline, direction, imageSmoothingEnabled
 
 ##### 常用 api
 
