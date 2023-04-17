@@ -15,6 +15,16 @@
  * 第一个参数和其他的是相同的，都是一个图像或者另一个 canvas 的引用
  * 前 4 个是定义图像源的切片位置和大小
  * 后 4 个则是定义切片的目标显示位置和大小
+ * 
+ * imageData,存储着 canvas 对象真实的像素数据，它包含以下几个只读属性：
+ * width：图片宽度，单位是像素
+ * height: 图片高度，单位是像素
+ * data: Uint8ClampedArray 类型的一维数组，包含着 RGBA 格式的整型数据，范围在 0 至 255 之间
+ * 例如，要读取图片中位于第 50 行，第 200 列的像素的蓝色部份:
+ * blueComponent = imageData.data[((50 * (imageData.width * 4)) + (200 * 4)) + 2];
+ * 
+ * 写入像素数据
+ * ctx.putImageData(myImageData, dx, dy);
  */
 
 export function drawImage(ctx) {

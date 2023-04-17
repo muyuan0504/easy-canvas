@@ -6,6 +6,7 @@
 import { drawRoundedRect } from './rect-api'
 import { textFill } from './font-api'
 import { drawImage } from './image-api'
+import { oneAnimate } from './animation'
 export default class EasyCanvas {
     constructor(elID) {
         const canvasEl = document.getElementById(elID)
@@ -15,26 +16,30 @@ export default class EasyCanvas {
             throw '当前运行环境不支持canvas'
         }
         // this.canvasCtx.globalAlpha = 0.2
+        return {
+            el: canvasEl,
+            ctx: this.canvasCtx,
+        }
     }
     drawImg() {
         drawImage(this.canvasCtx)
     }
-    drawImage() {
-        const img = new Image()
-        // img.src = require('@img/01.jpg')
-        img.src = '../static/image/01.jpg'
-        img.onload = (msg) => {
-            console.log('加載成功--', msg)
-            // 创建图案
-            var ptrn = this.canvasCtx.createPattern(img, 'repeat-x')
-            this.canvasCtx.fillStyle = ptrn
-            this.canvasCtx.fillRect(200, 20, 150, 150)
-        }
-        img.onerror = (err) => {
-            console.log('加載error--', err)
-        }
-        console.log(img)
-    }
+    // drawImage() {
+    //     const img = new Image()
+    //     // img.src = require('@img/01.jpg')
+    //     img.src = '../static/image/01.jpg'
+    //     img.onload = (msg) => {
+    //         console.log('加載成功--', msg)
+    //         // 创建图案
+    //         var ptrn = this.canvasCtx.createPattern(img, 'repeat-x')
+    //         this.canvasCtx.fillStyle = ptrn
+    //         this.canvasCtx.fillRect(200, 20, 150, 150)
+    //     }
+    //     img.onerror = (err) => {
+    //         console.log('加載error--', err)
+    //     }
+    //     console.log(img)
+    // }
     /** 绘制矩形 */
     drawRect({ x, y, width, height, fillColor = '', type = 'fill' } = options) {
         // fillRect：绘制一个填充的矩形，需要先填充fillStyle，再绘制才能生效
@@ -52,7 +57,7 @@ export default class EasyCanvas {
         drawRoundedRect.call(this.canvasCtx, x, y, width, height, radius, fillColor)
     }
     /** 清除指定矩形区域，让清除部分完全透明 */
-    cleanRect({ x, y, width, height } = options) {
+    clearRect(x, y, width, height) {
         this.canvasCtx.clearRect(x, y, width, height)
     }
     /** 绘制路径：图形的基本元素是路径。路径是通过不同颜色和宽度的线段或曲线相连形成的不同形状的点的集合
@@ -211,7 +216,11 @@ export default class EasyCanvas {
         this.canvasCtx.scale(x, y)
     }
     /** 裁剪：将当前正在构建的路径转换为当前的裁剪路径 */
-    clip() {}
+    clip() {
+        this.canvasCtx.beginPath()
+        this.canvasCtx.arc(0, 0, 60, 0, Math.PI * 2, true)
+        this.canvasCtx.clip()
+    }
     /** 变形：
      * transform(a, b, c, d, e, f)
      * a (m11) 水平方向的缩放
@@ -220,10 +229,15 @@ export default class EasyCanvas {
      * d(m22) 竖直方向的缩放
      * e(dx) 水平方向的移动
      * f(dy) 竖直方向的移动
-     * 
+     *
      * setTransform(a, b, c, d, e, f) 取消了当前变形，然后设置为指定的变形
-     * 
+     *
      * resetTransform() 重置当前变形为单位矩阵，它和调用以下语句是一样的：ctx.setTransform(1, 0, 0, 1, 0, 0);
-     */ 
+     */
     transform() {}
+    ainimate() {
+        oneAnimate(this.canvasCtx)
+    }
+    /** 小球动画 */
+    ballAnimate() {}
 }

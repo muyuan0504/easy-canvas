@@ -1,4 +1,4 @@
-/** 文本处理
+/** 文本处理相关
  * font: 字体，默认是'10px sans-serif', 单写字体无效
  * textAlign: 文本对齐选项，可选的值包括：start, end, left, right or center. 默认值是 start
  * textBaseline: 基线对齐选项。可选的值包括：top, hanging, middle, alphabetic, ideographic, bottom。默认值是 alphabetic
