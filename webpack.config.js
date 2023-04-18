@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
 module.exports = {
-    entry: path.resolve(__dirname, './src/index.js'),
+    entry: path.resolve(__dirname, './src/test.js'),
     output: {
         filename: 'easy-canvs.js',
         path: path.resolve(__dirname, 'dist'),
