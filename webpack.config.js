@@ -3,19 +3,29 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
 module.exports = {
-    entry: path.resolve(__dirname, './src/test.js'),
+    entry: path.resolve(__dirname, './src/index'),
     output: {
         filename: 'easy-canvs.js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
     },
     resolve: {
+        extensions: ['.ts', '.tsx', '.js'],
+        extensionAlias: {
+            '.js': ['.js', '.ts'],
+            '.cjs': ['.cjs', '.cts'],
+            '.mjs': ['.mjs', '.mts'],
+        },
         alias: {
             '@img': path.resolve(__dirname, './static/image'),
         },
     },
     module: {
         rules: [
+            {
+                test: /\.([cm]?ts|tsx)$/,
+                loader: 'ts-loader',
+            },
             {
                 test: /\.[s[ac]|c]ss$/,
                 exclude: /node_modules/,

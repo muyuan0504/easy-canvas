@@ -2,7 +2,8 @@
     "name": "easy-canvas",
     "version": "0.0.1",
     "description": "for happliy use canvas",
-    "main": "index.js",
+    "main": "./dist/easy-canvs.js",
+    "types": "./src/types/index.d.ts",
     "scripts": {
         "build": "webpack --mode=development --watch",
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,6 +21,8 @@
     "homepage": "https://github.com/jimouspeng/easy-canvas#readme",
     "devDependencies": {
         "html-webpack-plugin": "^5.5.0",
+        "ts-loader": "^9.4.2",
+        "typescript": "^5.0.4",
         "webpack": "^5.78.0",
         "webpack-cli": "^5.0.1"
     },
