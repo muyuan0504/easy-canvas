@@ -2,7 +2,7 @@
  * @Date: 2023-04-19 09:46:14
  * @LastEditors: jimouspeng
  * @Description: 编译入口文件
- * @LastEditTime: 2023-04-20 17:11:26
+ * @LastEditTime: 2023-04-21 15:20:26
  * @FilePath: \easy-canvas\src\index.ts
  */
 import EasyCanvas from '../core/easy-canvas'
@@ -34,6 +34,22 @@ async function excute() {
     })
 
     console.log(ecs)
+
+    // ecs.usePaintBrush('straight', {
+    //     initX: 80,
+    //     initY: 80,
+    //     path: [
+    //         { x: 100, y: 300 },
+    //         { x: 250, y: 150 },
+    //         { x: 80, y: 80 },
+    //     ],
+    //     fillColor: 'green',
+    // })
+    ecs.usePaintBrush('arc', {
+        initX: 200,
+        initY: 200,
+        path: [{ x1: 100, y1: 20, x2: 100, y2: 50, raduis: 50 }],
+    })
 }
 
 excute()

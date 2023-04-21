@@ -2,11 +2,11 @@
  * @Date: 2023-04-19 09:46:14
  * @LastEditors: jimouspeng
  * @Description: easy-canvas
- * @LastEditTime: 2023-04-20 17:06:05
+ * @LastEditTime: 2023-04-21 11:58:40
  * @FilePath: \easy-canvas\core\easy-canvas.ts
  */
-import { EasyCvsOpt, TextFillConf, ImgUseConf, UseGraphFn } from './types/main.type'
-import { graphicRect, graphicCircle } from './helper/main'
+import { EasyCvsOpt, TextFillConf, ImgUseConf, UseGraphFn, PaintType, UsePaintFn } from './types/main.type'
+import { graphicRect, graphicCircle, paintStraightLine, paintArcLine } from './helper/main'
 
 const elIDError = '未传入canvas元素ID ❤❤'
 const idOrEnvError = '未找到符合当前ID的canvas元素 或 当前运行环境不支持canvas ❤❤'
@@ -84,6 +84,17 @@ export default class EasyCanvas {
                 break
         }
     }
-    /** use paint-line */
-    usePaintLine() {}
+    /** use paint-brush */
+    usePaintBrush: UsePaintFn = function (type: PaintType, conf: any) {
+        switch (type) {
+            case 'straight':
+                paintStraightLine.call(this.ecs, conf)
+                break
+            case 'arc':
+                paintArcLine.call(this.ecs, conf)
+                break
+            default:
+                break
+        }
+    }
 }

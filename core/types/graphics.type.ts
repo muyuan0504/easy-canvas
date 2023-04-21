@@ -2,7 +2,7 @@
  * @Date: 2023-04-19 17:48:26
  * @LastEditors: jimouspeng
  * @Description: 图形处理
- * @LastEditTime: 2023-04-20 17:11:37
+ * @LastEditTime: 2023-04-21 11:01:37
  * @FilePath: \easy-canvas\core\types\graphics.type.ts
  */
 export type CircleType = 'circle'
@@ -27,6 +27,6 @@ export interface GraphCircleConf extends BaseConf {
 }
 
 export interface UseGraphFn {
-    (type: RectType, options: GraphRectConf): undefined | void
-    (type: CircleType, options: GraphCircleConf): undefined | void
+    (type: RectType, options: GraphRectConf): void
+    (type: CircleType, options: GraphCircleConf): void
 }
