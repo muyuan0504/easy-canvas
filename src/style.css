@@ -1,0 +1,8 @@
+#cvs {
+    background-image: url('http://img95.699pic.com/photo/40116/7675.jpg_wh300.jpg');
+}
+.test {
+    width: 300px;
+    height: 200px;
+    background: yellow url('../static/image/01.jpg');
+}

@@ -1,5 +1,4 @@
-### for canvas more easily to iuse
-既提供封装能力，又提供可自定扩展执行函数
+### for canvas more easily to use
 
 ##### globalAlpha透明度处理
 

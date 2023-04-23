@@ -29,16 +29,25 @@ module.exports = {
             {
                 test: /\.[s[ac]|c]ss$/,
                 exclude: /node_modules/,
-                use: ['style-loader', 'css-loader'],
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            // 禁止loader解析css代码时，将url由相对路径转为绝对路径，保证background等url使用生效
+                            url: false,
+                        },
+                    },
+                ],
             },
             {
-                test: /\.(png|jpg|gif)$/,
+                test: /\.(png|jpg|gif|ogv|ttf)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'url-loader',
                     // loader: 'file-loader',
                     options: {
-                        limit: 1024 * 1024 * 100, //byte
+                        limit: 1, //byte
                         name: '[name]_[hash].[ext]',
                     },
                 },
@@ -50,4 +59,8 @@ module.exports = {
             template: path.resolve(__dirname, './template.html'),
         }),
     ],
+    devServer: {
+        static: './dist',
+    },
+    mode: 'development',
 }
