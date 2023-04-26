@@ -1,28 +1,29 @@
-### for canvas more easily to use
+## for canvas more easily to use
 
-##### globalAlpha透明度处理
-
-这个属性影响到 canvas 里设置后所有图形的透明度，有效的值范围是 0.0（完全透明）到 1.0（完全不透明），默认是 1.0
-不过对 strokeStyle 和 fillStyle 设置 rgba 值的透明度更好
-
-##### canvasGradient自定义渐变
-用线性或者径向的渐变来填充或描边，可以赋给图形的 fillStyle 或 strokeStyle 属性
-
-##### path2D路径复用
-
-可接受另一个 path2D 实例作为参数完成路径的复用；
-也可以接收 svg path 数据构建路径
-
-##### canvas状态的保存和恢复
-save(): 保存画布 (canvas) 的所有状态
-restore(): 恢复 canvas 状态
-一个绘画状态包括：
-当前应用的变形（即移动，旋转和缩放，见下）
-以及下面这些属性：strokeStyle, fillStyle, globalAlpha, lineWidth, lineCap, lineJoin, miterLimit, lineDashOffset, shadowOffsetX, shadowOffsetY, shadowBlur, shadowColor, globalCompositeOperation, font, textAlign, textBaseline, direction, imageSmoothingEnabled
-
-##### 常用 api
-
-@color:可以是表示 CSS 颜色值的字符串，渐变对象或者图案对象,默认是黑色
-
--   fillStyle: color; 设置图形的填充颜色
--   strokeStyle: color; 设置图形轮廓的颜色
+### EasyCanvas-constructor
+- el: canvas元素的ID
+### API
+- useFont
+  使用自定义字体：传入字体别名与字体url，返回Promise，为保证后续绘制过程正常使用自定义字体，建议使用await等待字体文件加载成功再使用
+- useText
+  渲染文本：在给定的(x,y)坐标上进行文字渲染，支持自定义文字style
+- setPattern
+  创建图案，暂只支持img类型，传入图片资源地址，返回Promise,当图片加载成功，将图片元素转换为图案返回。
+- useImg
+  使用图片绘制到canvas画布上，返回Promise
+- getImageData
+  从canvas上获取ImageData对象
+- putImageData
+  将ImageData对象以位图的形式绘制到canvas
+- useVideo
+  使用视频资源
+- userFill
+  使用填充功能
+- useGraphics
+  图形绘制接口
+- usePaintBrush
+  使用画笔，用于线段绘制，支持直线和曲线绘制
+- userCustomset
+  用户自定义配置
+- executeCustomFn
+  用户自定义执行函数

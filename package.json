@@ -6,7 +6,6 @@
     "types": "./src/types/index.d.ts",
     "scripts": {
         "build": "webpack --mode=development --watch",
-        "test": "echo \"Error: no test specified\" && exit i1",
         "serve": "webpack serve --open"
     },
     "repository": {

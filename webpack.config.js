@@ -7,6 +7,10 @@ module.exports = {
     output: {
         filename: 'easy-canvs.js',
         path: path.resolve(__dirname, 'dist'),
+        library: {
+            name: 'EasyCavas',
+            type: 'umd',
+        },
         clean: true,
     },
     resolve: {
