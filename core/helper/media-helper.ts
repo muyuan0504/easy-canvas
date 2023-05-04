@@ -6,7 +6,7 @@
  * @FilePath: \easy-canvas\core\helper\media-helper.ts
  */
 
-import { ImgUseConf, VideoUseConf } from '../types/main.type'
+import { ImgUseConf, VideoUseConf } from '../../types/main.type'
 
 export const useImage = function (imgConf: ImgUseConf): Promise<boolean> {
     const { src, dx, dy, dw, dh } = imgConf

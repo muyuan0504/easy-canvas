@@ -6,7 +6,7 @@
  * @FilePath: \easy-canvas\core\helper\graphics-helper.ts
  */
 
-import { GraphRectConf, GraphCircleConf } from '../types/main.type'
+import { GraphRectConf, GraphCircleConf } from '../../types/main.type'
 
 export function graphicRect(options: GraphRectConf) {
     // TODO矩形绘制, 先只考虑fill场景,并且color只支持css-string

@@ -6,7 +6,7 @@
  * @FilePath: \easy-canvas\core\helper\paint-helper.ts
  */
 
-import { PaintStraConf, PaintArcConf } from '../types/main.type'
+import { PaintStraConf, PaintArcConf } from '../../types/main.type'
 
 export function paintStraightLine(conf: PaintStraConf) {
     const { path, initX, initY, fillColor } = conf

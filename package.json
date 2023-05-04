@@ -1,18 +1,23 @@
 {
-    "name": "easy-canvas",
-    "version": "0.0.1",
+    "name": "canvas-useful",
+    "version": "0.0.3",
     "description": "for happliy use canvas",
     "main": "./dist/easy-canvs.js",
-    "types": "./src/types/index.d.ts",
+    "types": "./index.d.ts",
     "scripts": {
         "build": "webpack --mode=development --watch",
-        "serve": "webpack serve --open"
+        "serve": "webpack serve --open",
+        "publish": "npm publish"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/jimouspeng/easy-canvas.git"
     },
-    "keywords": [],
+    "keywords": [
+        "canvas",
+        "canvas-study",
+        "canvas-api"
+    ],
     "author": "",
     "license": "ISC",
     "bugs": {
@@ -28,6 +33,7 @@
         "webpack-cli": "^5.0.1"
     },
     "dependencies": {
+        "canvas-useful": "^0.0.3",
         "css-loader": "^6.7.3",
         "style-loader": "^3.3.2",
         "url-loader": "^4.1.1",

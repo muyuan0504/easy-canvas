@@ -2,7 +2,7 @@
  * @Date: 2023-04-19 09:46:14
  * @LastEditors: jimouspeng
  * @Description: 编译入口文件
- * @LastEditTime: 2023-04-23 16:43:49
+ * @LastEditTime: 2023-05-04 10:28:31
  * @FilePath: \easy-canvas\src\index.ts
  */
 import './style.css'
@@ -14,7 +14,7 @@ const videoEl = document.getElementById('videoEl')
 videoEl.setAttribute('src', videoResource)
 
 const ecs = new EasyCanvas({ el: 'cvs' })
-const ecs2 = new EasyCanvas({ el: 'video-cvs' })
+// const ecs2 = new EasyCanvas({ el: 'video-cvs' })
 
 async function excute() {
     async function loadFont() {
@@ -25,7 +25,21 @@ async function excute() {
         ecs.useFill({ color: patn, x: 0, y: 0, fx: 320, fy: 192 })
         // ecs.useImg({ src: require('../static/image/01.jpg').default, dx: 150, dy: 150, dw: 320, dh: 192 })
     }
-    // await loadFont()
+    await loadFont()
+    ecs.useCustomSet({ strokeStyle: 'gray' })
+
+    // ecs.ecs.strokeStyle = 'red'
+
+    function createRect() {
+        console.log('start', this)
+        this.beginPath()
+        this.moveTo(0,0);
+        this.lineTo(150, 150);
+        this.lineTo(150, 200);
+        this.stroke()
+    }
+    ecs.executeCustomFn(createRect)
+
     // ecs.useGraphics('rect', {
     //     x: 150,
     //     y: 150,
@@ -57,7 +71,7 @@ async function excute() {
     // })
 }
 
-new VideoProcessor(videoEl, ecs2, ecs)
+// new VideoProcessor(videoEl, ecs2, ecs)
 
 excute()
 // ecs.font = '10px san-serif'

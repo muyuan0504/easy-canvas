@@ -555,6 +555,38 @@ caniuse-lite@^1.0.30001449:
   resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001477.tgz#a2ffb2276258233034bbb869d4558b02658a511e"
   integrity sha512-lZim4iUHhGcy5p+Ri/G7m84hJwncj+Kz7S5aD4hoQfslKZJgt0tHc/hafVbqHC5bbhHb+mrW2JOUHkI5KH7toQ==
 
+canvas-useful@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/canvas-useful/-/canvas-useful-0.0.1.tgz#538239b5f56ceb44a6eed18bb0c00d1a07c8abba"
+  integrity sha512-fKwmCFI8zMIZxWVLliHtQ2rVjj0IB623R/gADyW9kt6Pi3k7O5PDIklb4vf8bZWIJ3snHaR5+Fk4utibvtVEGg==
+  dependencies:
+    css-loader "^6.7.3"
+    style-loader "^3.3.2"
+    url-loader "^4.1.1"
+    webpack-dev-server "^4.13.3"
+
+canvas-useful@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/canvas-useful/-/canvas-useful-0.0.2.tgz#f0da02b24d1cd4c495321037f413adfe8c2aa32f"
+  integrity sha512-XClvucm/LsoZUAma/m6hOwnMzteco9/n6QPxWIed2qlDn8MIzMdN1tFimsmwWWt+fCOp3VFf0VRKzNSG8UC7Zg==
+  dependencies:
+    canvas-useful "^0.0.1"
+    css-loader "^6.7.3"
+    style-loader "^3.3.2"
+    url-loader "^4.1.1"
+    webpack-dev-server "^4.13.3"
+
+canvas-useful@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/canvas-useful/-/canvas-useful-0.0.3.tgz#669f70d07da29f809a2e4a6290dadf9c24b30aa9"
+  integrity sha512-4HJ2FtktH8NwPOnHXM44CoQpCKYeG4ilOOV/xezowWS9KCZTeqdbH1VQnmE+dc/8Ut8mvUJcE+eL1v74I6Cy7A==
+  dependencies:
+    canvas-useful "^0.0.2"
+    css-loader "^6.7.3"
+    style-loader "^3.3.2"
+    url-loader "^4.1.1"
+    webpack-dev-server "^4.13.3"
+
 chalk@^4.1.0:
   version "4.1.2"
   resolved "https://registry.npmmirror.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"

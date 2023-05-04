@@ -2,10 +2,10 @@
  * @Date: 2023-04-19 09:46:14
  * @LastEditors: jimouspeng
  * @Description: easy-canvas
- * @LastEditTime: 2023-04-26 11:54:49
+ * @LastEditTime: 2023-05-04 10:26:52
  * @FilePath: \easy-canvas\core\easy-canvas.ts
  */
-import { EasyCvsOpt, TextFillConf, ImgUseConf, VideoUseConf, UseGraphFn, PaintType, UsePaintFn, ImgDataGet, ImgDataPut, fillConf } from './types/main.type'
+import { EasyCvsOpt, TextFillConf, ImgUseConf, VideoUseConf, UseGraphFn, PaintType, UsePaintFn, ImgDataGet, ImgDataPut, fillConf } from '../types/main.type'
 import { graphicRect, graphicCircle, paintStraightLine, paintArcLine, useImage, useVideo, patternSet } from './helper/main'
 
 const elIDError = '未传入canvas元素ID ❤❤'
@@ -159,6 +159,6 @@ export default class EasyCanvas {
     }
     /** executeCustomFn：自定义执行函数 */
     executeCustomFn(exeFn: Function) {
-        return exeFn.bind(this.ecs)
+        return exeFn.call(this.ecs)
     }
 }

@@ -1,5 +1,7 @@
 ## for canvas more easily to use
 
+<编译后的代码未经过babel转译，引入后自行配置babel规则>
+
 ### EasyCanvas-constructor
 - el: canvas元素的ID
 ### API
