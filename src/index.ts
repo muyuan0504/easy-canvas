@@ -2,11 +2,11 @@
  * @Date: 2023-04-19 09:46:14
  * @LastEditors: jimouspeng
  * @Description: 编译入口文件
- * @LastEditTime: 2023-05-04 10:28:31
+ * @LastEditTime: 2023-05-04 20:15:59
  * @FilePath: \easy-canvas\src\index.ts
  */
 import './style.css'
-import EasyCanvas from '../core/easy-canvas'
+import EasyCanvas from 'canvas-useful/dist/easy-canvs'
 import VideoProcessor from '../core/easy-video'
 
 const videoResource = require('../static/video/video.ogv').default
@@ -33,9 +33,9 @@ async function excute() {
     function createRect() {
         console.log('start', this)
         this.beginPath()
-        this.moveTo(0,0);
-        this.lineTo(150, 150);
-        this.lineTo(150, 200);
+        this.moveTo(0, 0)
+        this.lineTo(150, 150)
+        this.lineTo(150, 200)
         this.stroke()
     }
     ecs.executeCustomFn(createRect)

@@ -2,8 +2,8 @@
  * @Date: 2023-05-04 12:13:02
  * @LastEditors: jimouspeng
  * @Description: 类型声明
- * @LastEditTime: 2023-05-04 12:14:50
- * @FilePath: \easy-canvas\type.d.ts
+ * @LastEditTime: 2023-05-04 20:21:24
+ * @FilePath: \easy-canvas\index.d.ts
  */
 import { EasyCvsOpt, EasyCtx, FontFaceSet } from './types/main.type'
 
@@ -16,3 +16,5 @@ export declare class EasyCanvas {
     esc: null | EasyCtx
     constructor(options: EasyCvsOpt)
 }
+
+export * from './types/main.type'

@@ -587,6 +587,17 @@ canvas-useful@^0.0.3:
     url-loader "^4.1.1"
     webpack-dev-server "^4.13.3"
 
+canvas-useful@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/canvas-useful/-/canvas-useful-0.0.4.tgz#f09c776011b411a0b31197f476b1beeb6c0ccc7f"
+  integrity sha512-3NpvaX8Bve3SSXONS8mdfPqS7N0p+fxqZOJKS3DDHseicln6khrxrQcmceusUPLiWRbqXzf1QSc6S/xjfO0Icg==
+  dependencies:
+    canvas-useful "^0.0.3"
+    css-loader "^6.7.3"
+    style-loader "^3.3.2"
+    url-loader "^4.1.1"
+    webpack-dev-server "^4.13.3"
+
 chalk@^4.1.0:
   version "4.1.2"
   resolved "https://registry.npmmirror.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
