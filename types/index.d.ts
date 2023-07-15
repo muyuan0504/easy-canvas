@@ -5,7 +5,7 @@
  * @LastEditTime: 2023-05-04 20:21:24
  * @FilePath: \easy-canvas\index.d.ts
  */
-import { EasyCvsOpt, EasyCtx, FontFaceSet } from './types/main.type'
+import { EasyCvsOpt, EasyCtx, FontFaceSet } from './main.type'
 
 declare global {
     interface Document {
@@ -17,4 +17,4 @@ export declare class EasyCanvas {
     constructor(options: EasyCvsOpt)
 }
 
-export * from './types/main.type'
+export * from './main.type'
