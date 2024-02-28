@@ -8,18 +8,18 @@
 import { EasyCvsOpt, TextFillConf, ImgUseConf, VideoUseConf, UseGraphFn, PaintType, UsePaintFn, ImgDataGet, ImgDataPut, fillConf } from '../types/main.type'
 import { graphicRect, graphicCircle, paintStraightLine, paintArcLine, useImage, useVideo, patternSet } from './helper/main'
 
-const elIDError = '未传入canvas元素ID ❤❤'
-const idOrEnvError = '未找到符合当前ID的canvas元素 或 当前运行环境不支持canvas ❤❤'
+const ERROR_ELEMENT = '未传入canvas元素ID ❤❤'
+const ERROR_ENV = '未找到符合当前ID的canvas元素 或 当前运行环境不支持canvas ❤❤'
 
 export default class EasyCanvas {
     ecs: CanvasRenderingContext2D | null
     constructor(options: EasyCvsOpt) {
         if (!options || !options.el) {
-            throw elIDError
+            throw ERROR_ELEMENT
         }
         const canvasEl = document.getElementById(options.el)
         if (!canvasEl || !(canvasEl as HTMLCanvasElement).getContext) {
-            throw idOrEnvError
+            throw ERROR_ENV
         }
         this.ecs = (canvasEl as HTMLCanvasElement).getContext('2d')
     }

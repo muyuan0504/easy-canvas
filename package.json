@@ -1,9 +1,9 @@
 {
     "name": "canvas-useful",
-    "version": "0.0.6",
+    "version": "0.0.5",
     "description": "for happliy use canvas",
-    "main": "./dist/index.js",
-    "types": "./types/index.d.ts",
+    "main": "/dist/index.js",
+    "types": "/types/index.d.ts",
     "scripts": {
         "build": "webpack --config=webpack.config.build.js",
         "serve": "webpack serve --open",
