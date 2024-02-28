@@ -5,7 +5,7 @@
  * @LastEditTime: 2023-04-23 16:46:21
  * @FilePath: \easy-canvas\core\easy-video.ts
  */
-import EasyCanvas from './easy-canvas'
+import EasyCanvas from './index'
 export default class VideoProcessor {
     constructor(public videoEl: any, public ecs1: EasyCanvas, public ecs2: EasyCanvas) {
         const processor = this

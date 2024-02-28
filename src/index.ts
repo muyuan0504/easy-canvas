@@ -7,7 +7,7 @@
  */
 import './style.css'
 import EasyCanvas from 'canvas-useful/dist/easy-canvs'
-import VideoProcessor from '../core/easy-video'
+import VideoProcessor from '../module/easy-video'
 
 const videoResource = require('../static/video/video.ogv').default
 const videoEl = document.getElementById('videoEl')
